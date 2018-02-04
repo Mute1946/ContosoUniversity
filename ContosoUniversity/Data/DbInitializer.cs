@@ -10,7 +10,7 @@ namespace ContosoUniversity.Data
     {
         public static void Initialize(SchoolContext context)
         {
-            context.Database.EnsureCreated();
+            //context.Database.EnsureCreated();
 
             // Look for any students.
             if (context.Students.Any())
@@ -43,7 +43,7 @@ namespace ContosoUniversity.Data
                 context.Students.Add(s);
             }
             context.SaveChanges();
-            /*
+
             var instructors = new Instructor[]
             {
                 new Instructor { FirstMidName = "Kim",     LastName = "Abercrombie",
@@ -85,29 +85,29 @@ namespace ContosoUniversity.Data
                 context.Departments.Add(d);
             }
             context.SaveChanges();
-            */
+
             var courses = new Course[]
             {
-                new Course {CourseID = 1050, Title = "Chemistry",Credits = 3,
-                    /*DepartmentID = departments.Single( s => s.Name == "Engineering").DepartmentID*/
+                new Course {CourseID = 1050, Title = "Chemistry",      Credits = 3,
+                    DepartmentID = departments.Single( s => s.Name == "Engineering").DepartmentID
                 },
                 new Course {CourseID = 4022, Title = "Microeconomics", Credits = 3,
-                    /*DepartmentID = departments.Single( s => s.Name == "Economics").DepartmentID*/
+                    DepartmentID = departments.Single( s => s.Name == "Economics").DepartmentID
                 },
                 new Course {CourseID = 4041, Title = "Macroeconomics", Credits = 3,
-                    /*-DepartmentID = departments.Single( s => s.Name == "Economics").DepartmentID*/
+                    DepartmentID = departments.Single( s => s.Name == "Economics").DepartmentID
                 },
                 new Course {CourseID = 1045, Title = "Calculus",       Credits = 4,
-                    /*DepartmentID = departments.Single( s => s.Name == "Mathematics").DepartmentID*/
+                    DepartmentID = departments.Single( s => s.Name == "Mathematics").DepartmentID
                 },
                 new Course {CourseID = 3141, Title = "Trigonometry",   Credits = 4,
-                    /*DepartmentID = departments.Single( s => s.Name == "Mathematics").DepartmentID*/
+                    DepartmentID = departments.Single( s => s.Name == "Mathematics").DepartmentID
                 },
                 new Course {CourseID = 2021, Title = "Composition",    Credits = 3,
-                    /*DepartmentID = departments.Single( s => s.Name == "English").DepartmentID*/
+                    DepartmentID = departments.Single( s => s.Name == "English").DepartmentID
                 },
                 new Course {CourseID = 2042, Title = "Literature",     Credits = 4,
-                    /*DepartmentID = departments.Single( s => s.Name == "English").DepartmentID*/
+                    DepartmentID = departments.Single( s => s.Name == "English").DepartmentID
                 },
             };
 
@@ -116,7 +116,7 @@ namespace ContosoUniversity.Data
                 context.Courses.Add(c);
             }
             context.SaveChanges();
-            /*
+
             var officeAssignments = new OfficeAssignment[]
             {
                 new OfficeAssignment {
@@ -177,7 +177,7 @@ namespace ContosoUniversity.Data
                 context.CourseAssignments.Add(ci);
             }
             context.SaveChanges();
-            */
+
             var enrollments = new Enrollment[]
             {
                 new Enrollment {
@@ -219,7 +219,7 @@ namespace ContosoUniversity.Data
                     CourseID = courses.Single(c => c.Title == "Microeconomics").CourseID,
                     Grade = Grade.B
                     },
-                    new Enrollment {
+                new Enrollment {
                     StudentID = students.Single(s => s.LastName == "Barzdukas").ID,
                     CourseID = courses.Single(c => c.Title == "Chemistry").CourseID,
                     Grade = Grade.B
