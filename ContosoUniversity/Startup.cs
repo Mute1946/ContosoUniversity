@@ -1,9 +1,13 @@
-﻿using ContosoUniversity.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ContosoUniversity.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContosoUniversity
 {
@@ -30,8 +34,8 @@ namespace ContosoUniversity
         {
             if (env.IsDevelopment())
             {
-                app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
             }
             else
             {
